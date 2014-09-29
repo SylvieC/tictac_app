@@ -1,4 +1,4 @@
-//tictac
+//tictac.meteor.com
 //meteor deploy tictac.meteor.com
 
 // https://www.meteor.com/blog/2014/02/25/meteor-developer-accounts
@@ -292,13 +292,13 @@ if (Meteor.isClient) {
               boards_won_or_tied.push(boardNum);
 
                 if (boards_won_or_tied.indexOf(value) == -1){
-                  alert('loop2');
+                  
                 makeAllBackgroundWhite();
                 $('#innerBoard' + value).css('background','yellow');
                 nextMove = [value];
                 
                }else{
-                alert('loop3');
+              
 
                 makeAllAvailableBoardsYellow();
                 nextMove = getBoardsAvailable(boards_won_or_tied);
@@ -422,13 +422,13 @@ if (Meteor.isClient) {
 
 
                 if (boards_won_or_tied.indexOf(value) == -1){
-                  alert('loop2');
+                
                 makeAllBackgroundWhite();
                 $('#innerBoard' + value).css('background','yellow');
                 nextMove = [value];
                 
                }else{
-                alert('loop3');
+              
 
                 makeAllAvailableBoardsYellow();
                 nextMove = getBoardsAvailable(boards_won_or_tied);
