@@ -256,6 +256,7 @@ if (Meteor.isClient) {
                 alert('this is a tie');
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard1", false);
+                nextMove = [value]
 
                 // if (checkWinBigBoard(current_player)){
                 //   alert('The big winner is' + current_player.name);
@@ -269,11 +270,13 @@ if (Meteor.isClient) {
                 update_current_player();
                 next_template = value;
                 if (boards_won_or_tied.indexOf(value) === -1){
-                makeAllBackgroundWhite();
-                $('#innerBoard' + value).css('background','yellow');
-                nextMove = [value];
+                    makeAllBackgroundWhite();
+                    $('#innerBoard' + value).css('background','yellow');
+                    nextMove = [value];
                 
                }else{
+                alert('we are here');
+
                 makeAllAvailableBoardsYellow();
                 nextMove = getBoardsAvailable(boards_won_or_tied);
                }
@@ -287,6 +290,20 @@ if (Meteor.isClient) {
               Session.set("winnerBoard1",false);
               current_player.bigwins.push(boardNum);
               boards_won_or_tied.push(boardNum);
+
+                if (boards_won_or_tied.indexOf(value) == -1){
+                  alert('loop2');
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+                nextMove = [value];
+                
+               }else{
+                alert('loop3');
+
+                makeAllAvailableBoardsYellow();
+                nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
               
 
               if (checkWinBigBoard(current_player)){
@@ -312,8 +329,7 @@ if (Meteor.isClient) {
   Template.innerBoard1.showWinner = function(){
 
      var result = true;
-     makeAllAvailableBoardsYellow();
-     nextMove = getBoardsAvailable(boards_won_or_tied);
+   
   
 
      if (result){
@@ -404,6 +420,21 @@ if (Meteor.isClient) {
               // Template.innerBoard1.noWinner(false);
               boards_won_or_tied.push(boardNum);
 
+
+                if (boards_won_or_tied.indexOf(value) == -1){
+                  alert('loop2');
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+                nextMove = [value];
+                
+               }else{
+                alert('loop3');
+
+                makeAllAvailableBoardsYellow();
+                nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
+
               if (checkWinBigBoard(current_player)){
                 alert('The big winner is ' + current_player.name);
               }
@@ -425,8 +456,7 @@ if (Meteor.isClient) {
   Template.innerBoard2.showWinner2 = function(){
 
      var result = true;
-     makeAllAvailableBoardsYellow();
-     nextMove = getBoardsAvailable(boards_won_or_tied);
+     
 
      if (result){
       // alert (current_player.name);
@@ -511,6 +541,17 @@ if (Meteor.isClient) {
               // Template.innerBoard1.noWinner(false);
               boards_won_or_tied.push(boardNum);
 
+
+              if (boards_won_or_tied.indexOf(value) == -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+                nextMove = [value];
+                
+               }else{
+                makeAllAvailableBoardsYellow();
+                nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
               if (checkWinBigBoard(current_player)){
                 alert('The big winner is ' + current_player.name);
               }
@@ -531,8 +572,7 @@ if (Meteor.isClient) {
   Template.innerBoard3.showWinner3 = function(){
 
      var result = true;
-     makeAllAvailableBoardsYellow();
-     nextMove = getBoardsAvailable(boards_won_or_tied);
+  
 
      if (result){
       // alert (current_player.name);
@@ -615,6 +655,16 @@ if (Meteor.isClient) {
               // Template.innerBoard1.noWinner(false);
               boards_won_or_tied.push(boardNum);
 
+              if (boards_won_or_tied.indexOf(value) == -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+                nextMove = [value];
+                
+               }else{
+                makeAllAvailableBoardsYellow();
+                nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
               if (checkWinBigBoard(current_player)){
                 alert('The big winner is ' + current_player.name);
               }
@@ -635,8 +685,6 @@ if (Meteor.isClient) {
   Template.innerBoard4.showWinner4 = function(){
 
      var result = true;
-     makeAllAvailableBoardsYellow();
-      nextMove = getBoardsAvailable(boards_won_or_tied);
 
      if (result){
       // alert (current_player.name);
@@ -722,6 +770,16 @@ if (Meteor.isClient) {
               // Template.innerBoard1.noWinner(false);
               boards_won_or_tied.push(boardNum);
 
+              if (boards_won_or_tied.indexOf(value) == -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+                nextMove = [value];
+                
+               }else{
+                makeAllAvailableBoardsYellow();
+                nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
               if (checkWinBigBoard(current_player)){
                 alert('The big winner is ' + current_player.name);
               }
@@ -742,8 +800,7 @@ if (Meteor.isClient) {
   Template.innerBoard5.showWinner5 = function(){
 
      var result = true;
-     makeAllAvailableBoardsYellow();
-      nextMove = getBoardsAvailable(boards_won_or_tied);
+    
 
      if (result){
       // alert (current_player.name);
@@ -829,6 +886,16 @@ if (Meteor.isClient) {
               current_player.bigwins.push(boardNum);
               // Template.innerBoard1.noWinner(false);
               boards_won_or_tied.push(boardNum);
+
+              if (boards_won_or_tied.indexOf(value) == -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+                nextMove = [value];
+                
+               }else{
+                makeAllAvailableBoardsYellow();
+                nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
               
               if (checkWinBigBoard(current_player)){
                 alert('The big winner is ' + current_player.name);
@@ -849,8 +916,7 @@ if (Meteor.isClient) {
   Template.innerBoard6.showWinner6 = function(){
 
      var result = true;
-     makeAllAvailableBoardsYellow();
-    nextMove = getBoardsAvailable(boards_won_or_tied);
+
 
      if (result){
       // alert (current_player.name);
@@ -938,6 +1004,16 @@ if (Meteor.isClient) {
               current_player.bigwins.push(boardNum);
               // Template.innerBoard1.noWinner(false);
               boards_won_or_tied.push(boardNum);
+
+              if (boards_won_or_tied.indexOf(value) == -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+                nextMove = [value];
+                
+               }else{
+                makeAllAvailableBoardsYellow();
+                nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
               
               if (checkWinBigBoard(current_player)){
                 alert('The big winner is ' + current_player.name);
@@ -959,8 +1035,7 @@ if (Meteor.isClient) {
   Template.innerBoard7.showWinner7 = function(){
 
      var result = true;
-     makeAllAvailableBoardsYellow();
-     nextMove = getBoardsAvailable(boards_won_or_tied);
+    
 
      if (result){
       // alert (current_player.name);
@@ -1044,6 +1119,16 @@ if (Meteor.isClient) {
               // Template.innerBoard1.noWinner(false);
               boards_won_or_tied.push(boardNum);
 
+              if (boards_won_or_tied.indexOf(value) == -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+                nextMove = [value];
+                
+               }else{
+                makeAllAvailableBoardsYellow();
+                nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
               if (checkWinBigBoard(current_player)){
                 alert('The big winner is ' + current_player.name);
               }
@@ -1064,8 +1149,6 @@ if (Meteor.isClient) {
   Template.innerBoard8.showWinner8 = function(){
 
      var result = true;
-     makeAllAvailableBoardsYellow();
-     nextMove = getBoardsAvailable(boards_won_or_tied);
 
      if (result){
       // alert (current_player.name);
@@ -1151,6 +1234,16 @@ if (Meteor.isClient) {
               // Template.innerBoard1.noWinner(false);
               boards_won_or_tied.push(boardNum);
 
+              if (boards_won_or_tied.indexOf(value) == -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+                nextMove = [value];
+                
+               }else{
+                makeAllAvailableBoardsYellow();
+                nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
               if (checkWinBigBoard(current_player)){
                 alert('The big winner is' + current_player.name);
               }
@@ -1171,8 +1264,6 @@ if (Meteor.isClient) {
   Template.innerBoard9.showWinner9 = function(){
 
      var result = true;
-     makeAllAvailableBoardsYellow();
-     nextMove = getBoardsAvailable(boards_won_or_tied);
 
 
      if (result){
