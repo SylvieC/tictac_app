@@ -1,0 +1,310 @@
+<!-- tictac -->
+<head>
+  <title>tic-tac-toe</title>
+</head>
+
+<body>
+  <div class="players">
+    {{>teams}}
+  </div>
+  <div>
+    <div align='center' id='mainB'>
+  {{>mainBoard}}
+    </div>
+</div>
+</body>
+
+
+<template name="teams">
+<!--    <h1>Tic-Tac-Tow</h1> -->
+  <div id='game'>
+
+      <ul id="teams">
+        {{#each players}}
+       <li class={{current}} id={{name}}>
+       <img src={{img_url}}>
+       <h2>Team<span>{{id}}</span><span class="team"> </span></h2><h3 class="player"> {{full_name}}
+     </h3><span class='sign'>{{sign}} </span></li>
+        {{/each}}
+      </ul>
+    </div>
+  </template>
+
+<template name="mainBoard">
+  <table id="firstBoard">
+    <tr>
+      <td class="main" id="main1"> {{>innerBoard1}}</td>
+      <td class="main" id="main2"> {{>innerBoard2}}</td>
+      <td class="main" id="main3">{{>innerBoard3}}</td>
+    </tr>
+    <tr>
+       <td class="main" id="main4">{{>innerBoard4}}</td>
+      <td class="main" id="main5">{{>innerBoard5}}</td>
+      <td class="main"  id="main6">{{>innerBoard6}}</td>
+    </tr>
+    <tr>
+       <td class="main" id="main7"> {{>innerBoard7}}</td>
+      <td class="main" id="main8"> {{>innerBoard8}}</td>
+      <td class="main" id="main9">{{>innerBoard9}}</td>
+    </tr>
+  </table>
+</template>
+
+
+<template name="innerBoard1">
+  
+  {{#if noWinner}}
+  <table  class="inner Board" id="innerBoard1">
+    <tr>
+      <td id="main11"> </td>
+      <td id="main12"> </td>
+      <td id="main13"></td>
+    </tr>
+    <tr>
+       <td id="main14"></td>
+      <td id="main15"></td>
+      <td id="main16"></td>
+    </tr>
+    <tr>
+       <td id="main17"></td>
+      <td id="main18"></td>
+      <td id="main19"></td>
+    </tr>
+  </table>
+    {{else}}
+      {{showWinner}}
+      {{mainWinner}}
+
+
+   {{/if}} 
+  <!--  <table id='newWin'>
+  <tr>
+    <td id="winnerBoard"></td>
+  </tr> 
+</table> -->
+</template>
+
+<!-- second board
+ -->
+<template name="innerBoard2">
+    {{#if noWinner2}}
+   <table class="inner Board" id="innerBoard2">
+    <tr>
+      <td id="main21"> </td>
+      <td id="main22"> </td>
+      <td id="main23"></td>
+    </tr>
+    <tr>
+       <td id="main24"></td>
+      <td id="main25"></td>
+      <td id="main26"></td>
+    </tr>
+    <tr>
+       <td id="main27"></td>
+      <td id="main28"></td>
+      <td id="main29"></td>
+    </tr>
+  </table>
+  <!--  <table id='newWin'>
+  <tr>
+    <td id="winnerBoard"></td>
+  </tr> 
+</table> -->
+ {{else}}
+      {{showWinner2}}
+
+
+   {{/if}} 
+ 
+ 
+</template>
+
+<!-- Board 3 -->
+<template name="innerBoard3">
+    {{#if noWinner3}}
+ <table class="inner Board" id="innerBoard3">
+    <tr>
+      <td id="main31"> </td>
+      <td id="main32"> </td>
+      <td id="main33"></td>
+    </tr>
+    <tr>
+       <td id="main34"></td>
+      <td id="main35"></td>
+      <td id="main36"></td>
+    </tr>
+    <tr>
+       <td id="main37"></td>
+      <td id="main38"></td>
+      <td id="main39"></td>
+    </tr>
+  </table>
+  <!--  <table id='newWin'>
+  <tr>
+    <td id="winnerBoard"></td>
+  </tr> 
+</table> --> 
+ {{else}}
+      {{showWinner3}}
+
+
+   {{/if}} 
+
+</template>
+
+<template name="innerBoard4">
+    {{#if noWinner4}}
+   <table class="inner Board" id="innerBoard4">
+    <tr>
+      <td id="main41"> </td>
+      <td id="main42"> </td>
+      <td id="main43"></td>
+    </tr>
+    <tr>
+       <td id="main44"></td>
+      <td id="main45"></td>
+      <td id="main46"></td>
+    </tr>
+    <tr>
+       <td id="main47"></td>
+      <td id="main48"></td>
+      <td id="main49"></td>
+    </tr>
+  </table>
+  <!--  <table id='newWin'>
+  <tr>
+    <td id="winnerBoard"></td>
+  </tr> 
+</table> -->
+ {{else}}
+      {{showWinner4}}
+{{/if}} 
+
+</template>
+
+<template name="innerBoard5">
+  {{#if noWinner5}}
+    <table class="inner Board" id="innerBoard5">
+    <tr>
+      <td id="main51"> </td>
+      <td id="main52"> </td>
+      <td id="main53"></td>
+    </tr>
+    <tr>
+       <td id="main54"></td>
+      <td id="main55"></td>
+      <td id="main56"></td>
+    </tr>
+    <tr>
+       <td id="main57"></td>
+      <td id="main58"></td>
+      <td id="main59"></td>
+    </tr>
+  </table>
+  <!--  <table id='newWin'>
+  <tr>
+    <td id="winnerBoard"></td>
+  </tr> 
+</table> -->
+ {{else}}
+      {{showWinner5}}
+{{/if}} 
+</template>
+
+<template name="innerBoard6">
+  {{#if noWinner6}}
+  <table class="inner Board" id="innerBoard6">
+    <tr>
+      <td id="main61"> </td>
+      <td id="main62"> </td>
+      <td id="main63"></td>
+    </tr>
+    <tr>
+       <td id="main64"></td>
+      <td id="main65"></td>
+      <td id="main66"></td>
+    </tr>
+    <tr>
+       <td id="main67"></td>
+      <td id="main68"></td>
+      <td id="main69"></td>
+    </tr>
+  </table>
+  {{else}}
+      {{showWinner6}}
+{{/if}} 
+</template>
+
+<template name="innerBoard7">
+    {{#if noWinner7}}
+    <table class="inner Board" id="innerBoard7">
+    <tr>
+      <td id="main71"> </td>
+      <td id="main72"> </td>
+      <td id="main73"></td>
+    </tr>
+    <tr>
+       <td id="main74"></td>
+      <td id="main75"></td>
+      <td id="main76"></td>
+    </tr>
+    <tr>
+       <td id="main77"></td>
+      <td id="main78"></td>
+      <td id="main79"></td>
+    </tr>
+  </table>
+   {{else}}
+      {{showWinner7}}
+{{/if}} 
+</template>
+
+<template name="innerBoard8">
+    {{#if noWinner8}}
+    <table class="inner Board" id="innerBoard8">
+    <tr>
+      <td id="main81"> </td>
+      <td id="main82"> </td>
+      <td id="main83"></td>
+    </tr>
+    <tr>
+      <td id="main84"></td>
+      <td id="main85"></td>
+      <td id="main86"></td>
+    </tr>
+    <tr>
+      <td id="main87"></td>
+      <td id="main88"></td>
+      <td id="main89"></td>
+    </tr>
+  </table>
+   {{else}}
+      {{showWinner8}}
+{{/if}} 
+</template>
+
+<template name="innerBoard9">
+    {{#if noWinner9}}
+  <table class="inner Board" id="innerBoard9">
+    <tr>
+      <td id="main91"> </td>
+      <td id="main92"> </td>
+      <td id="main93"></td>
+    </tr>
+    <tr>
+       <td id="main94"></td>
+      <td id="main95"></td>
+      <td id="main96"></td>
+    </tr>
+    <tr>
+       <td id="main97"></td>
+      <td id="main98"></td>
+      <td id="main99"></td>
+    </tr>
+  </table>
+   {{else}}
+      {{showWinner9}}
+{{/if}} 
+</template>
+
+
