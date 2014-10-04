@@ -1,7 +1,8 @@
-/* CSS declarations go here */
+
 /* CSS declarations go here */
 td{ 
 /*border: 1px solid black;*/
+
 width: 30%;
 }
 img{
@@ -83,7 +84,7 @@ td.main{
 td{ 
   height:60px;
   width:60px;
-  border:4px solid rgba(0,0,0,0.6);
+  border:2px solid rgba(0,0,0,0.7);
   box-sizing:border-box;
   text-align:center;
   line-height:50px;
@@ -94,8 +95,10 @@ img{
 }
 body{
  /* background:#11051F;*/
-  background:darkgrey;
-
+/*  background:darkgrey;*/
+/*background: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQS2NFPps85UicDoqu5nVencdKXyMt7zELWe-9bIePaeD7LyXiI');*/
+background: url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSoUdwlEsI6iCgOL89zRAmWOEppZAaILYvD3la9U-f5H-ZAekx03g');
+/*background-repeat: no-repeat;*/
 
 }
 table{
@@ -167,7 +170,7 @@ table{
 #newWin{
   height: 480px;
   width:480px;
-  border:4px solid rgba(0,0,0,0.6);
+  border:1px solid rgba(0,0,0,0.6);
   box-sizing:border-box;
 }
 #winnerBoard{
@@ -193,10 +196,59 @@ padding-right: 10px;
 }
 
 li#Obi, li#Darth{
-  padding-bottom: 24px;
+/*  padding-bottom: 24px;*/
 }
 
 .inner.Board{
   margin-left: 5px;
+}
+#firstBoard, #firstBoard>td{
+}
+
+table{
+  border-spacing: 0px;
+
+}
+
+#main1{
+  border-top: 3px solid green;
+  border-right:  solid white;
+}
+#main2{
+  border-left: solid white;
+}
+#innerBoard1, #innerBoard4, #innerBoard7{
+  padding-left: 5px;
+}
+#main1, #main2,#main3,#main4, #main5, #main6, #main7, #main8, #main9{
+  border: 0px solid white;
+}
+.topleft{
+  border-top : 3px solid black;
+  border-left: 3px solid black;
+}
+.topmiddle{
+  border-top: 3px solid black;
+}
+.topright{
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+}
+.middlerowleft{
+  border-left:3px solid black;
+}
+.middlerowright{
+  border-right: 3px solid black;
+}
+.bottomleft{
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+}
+.bottommiddle{
+  border-bottom: 3px solid black;
+}
+.bottomright{
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
 }
 

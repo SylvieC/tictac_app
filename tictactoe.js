@@ -1,4 +1,4 @@
-//tictac.meteor.com
+//tictac
 //meteor deploy tictac.meteor.com
 
 // https://www.meteor.com/blog/2014/02/25/meteor-developer-accounts
@@ -54,7 +54,8 @@ return result;
 }
 
 
-var current_player = team[0];
+var current_player = team[1];
+
 var update_current_player = function(){
   if (current_player === team[0]){
     current_player = team[1];
@@ -99,13 +100,7 @@ function checkWin(player, boardNum){
     }
     return false
   }  
-// var makeAllAvailableBoardsYellow = function(){
-//   for (var i = 1; i < boards_won_or_tied.length;i++){
-//     if (boards_won_or_tied.indexOf(i) != -1 ){
-//       $('#innerBoard' + i).css('background', 'yellow');
-//     }
-//   }
-// } 
+
 var makeAllAvailableBoardsYellow = function(){
   for (var i = 1; i <= 9; i++){
     if (boards_won_or_tied.indexOf(i) == -1){
@@ -217,6 +212,7 @@ if (Meteor.isClient) {
  Template.innerBoard1.events({
 
     'click td': function (e) {
+    
      
       boardNum = $(e.currentTarget).attr('id')[4];
       // alert('nextBoard ' + followingMove + ' other ' + other + ' sign ' + sign + ' name ' +  name + ' boards_won_or_tied' + boards_won_or_tied );
@@ -256,7 +252,19 @@ if (Meteor.isClient) {
                 alert('this is a tie');
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard1", false);
-                nextMove = [value]
+
+              if (checkWinBigBoard(current_player)){
+                alert('The big winner is ' + current_player.name);
+              }
+                if (boards_won_or_tied.indexOf(value) === -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+
+                 nextMove = [value];
+               }else{
+                makeAllAvailableBoardsYellow();
+                 nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
 
                 // if (checkWinBigBoard(current_player)){
                 //   alert('The big winner is' + current_player.name);
@@ -275,7 +283,7 @@ if (Meteor.isClient) {
                     nextMove = [value];
                 
                }else{
-                alert('we are here');
+              
 
                 makeAllAvailableBoardsYellow();
                 nextMove = getBoardsAvailable(boards_won_or_tied);
@@ -292,13 +300,13 @@ if (Meteor.isClient) {
               boards_won_or_tied.push(boardNum);
 
                 if (boards_won_or_tied.indexOf(value) == -1){
-                  
+                 
                 makeAllBackgroundWhite();
                 $('#innerBoard' + value).css('background','yellow');
                 nextMove = [value];
                 
                }else{
-              
+                
 
                 makeAllAvailableBoardsYellow();
                 nextMove = getBoardsAvailable(boards_won_or_tied);
@@ -393,6 +401,19 @@ if (Meteor.isClient) {
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard2", false);
 
+              if (checkWinBigBoard(current_player)){
+                alert('The big winner is ' + current_player.name);
+              }
+                 if (boards_won_or_tied.indexOf(value) === -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+
+                 nextMove = [value];
+               }else{
+                makeAllAvailableBoardsYellow();
+                 nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
               }else{
                 //the game continues if there aren't nine tiles used yet
                 switch_current('Darth');
@@ -426,8 +447,7 @@ if (Meteor.isClient) {
                 makeAllBackgroundWhite();
                 $('#innerBoard' + value).css('background','yellow');
                 nextMove = [value];
-                
-               }else{
+                               }else{
               
 
                 makeAllAvailableBoardsYellow();
@@ -514,6 +534,19 @@ if (Meteor.isClient) {
                 alert('this is a tie');
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard3", false);
+
+              if (checkWinBigBoard(current_player)){
+                alert('The big winner is ' + current_player.name);
+              }
+                 if (boards_won_or_tied.indexOf(value) === -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+
+                 nextMove = [value];
+               }else{
+                makeAllAvailableBoardsYellow();
+                 nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
 
               }else{
                 //the game continues if there aren't nine tiles used yet
@@ -629,6 +662,19 @@ if (Meteor.isClient) {
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard4", false);
 
+              if (checkWinBigBoard(current_player)){
+                alert('The big winner is ' + current_player.name);
+              }
+                 if (boards_won_or_tied.indexOf(value) === -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+
+                 nextMove = [value];
+               }else{
+                makeAllAvailableBoardsYellow();
+                 nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
               }else{
                 //the game continues if there aren't nine tiles used yet
                 switch_current('Darth');
@@ -742,6 +788,20 @@ if (Meteor.isClient) {
                 alert('this is a tie');
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard5", false);
+
+              if (checkWinBigBoard(current_player)){
+                alert('The big winner is ' + current_player.name);
+              }
+                 if (boards_won_or_tied.indexOf(value) === -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+
+                 nextMove = [value];
+               }else{
+                makeAllAvailableBoardsYellow();
+                 nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
 
               }else{
                 //the game continues if there aren't nine tiles used yet
@@ -859,6 +919,19 @@ if (Meteor.isClient) {
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard6", false);
 
+              if (checkWinBigBoard(current_player)){
+                alert('The big winner is ' + current_player.name);
+              }
+                 if (boards_won_or_tied.indexOf(value) === -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+
+                 nextMove = [value];
+               }else{
+                makeAllAvailableBoardsYellow();
+                 nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
+
               }else{
                 //the game continues if there aren't nine tiles used yet
                 switch_current('Darth');
@@ -941,7 +1014,7 @@ if (Meteor.isClient) {
 
 
     'click td': function (e) {
-      console.log(current_player.sign + ' ' + current_player.bigwins);
+    
        var boardNum = $(e.currentTarget).attr('id')[4];
        
         if (nextMove.indexOf(parseInt(boardNum)) == -1){
@@ -977,6 +1050,19 @@ if (Meteor.isClient) {
                 alert('this is a tie');
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard7", false);
+
+              if (checkWinBigBoard(current_player)){
+                alert('The big winner is ' + current_player.name);
+              }
+                 if (boards_won_or_tied.indexOf(value) === -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+
+                 nextMove = [value];
+               }else{
+                makeAllAvailableBoardsYellow();
+                 nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
 
               }else{
                 //the game continues if there aren't nine tiles used yet
@@ -1093,6 +1179,19 @@ if (Meteor.isClient) {
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard8", false);
 
+              if (checkWinBigBoard(current_player)){
+                alert('The big winner is ' + current_player.name);
+              }
+
+                if (boards_won_or_tied.indexOf(value) === -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+
+                 nextMove = [value];
+               }else{
+                makeAllAvailableBoardsYellow();
+                 nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
               }else{
                 //the game continues if there aren't nine tiles used yet
                 switch_current('Darth');
@@ -1207,6 +1306,19 @@ if (Meteor.isClient) {
                 alert('this is a tie');
                 boards_won_or_tied.push(boardNum);
                 Session.set("winnerBoard9", false);
+
+              if (checkWinBigBoard(current_player)){
+                alert('The big winner is ' + current_player.name);
+              }
+                 if (boards_won_or_tied.indexOf(value) === -1){
+                makeAllBackgroundWhite();
+                $('#innerBoard' + value).css('background','yellow');
+
+                 nextMove = [value];
+               }else{
+                makeAllAvailableBoardsYellow();
+                 nextMove = getBoardsAvailable(boards_won_or_tied);
+               }
 
               }else{
                 //the game continues if there aren't nine tiles used yet
